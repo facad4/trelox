@@ -28,7 +28,7 @@ The extension will automatically reload when you make changes to the files. You 
 ## Usage
 
 1. Navigate to any Trello board (e.g., `https://trello.com/b/boardId/board-name`)
-2. Look for the search input in the board header area
+2. Look for the search input in the board header area(Control+Shift+L)
 3. Type the name of the list you want to navigate to
 4. Click on the desired list from the dropdown
 5. The page will smoothly scroll to bring that list into view
