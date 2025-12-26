@@ -1,0 +1,305 @@
+/* Trello List Navigator Extension Styles */
+
+.trello-nav-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin: 0 8px;
+  z-index: 2147483646 !important;
+  flex-shrink: 0;
+}
+
+.trello-nav-button {
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  border: none;
+  border-radius: 3px;
+  background-color: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+}
+
+.trello-nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  opacity: 1;
+}
+
+.trello-nav-button:active {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.trello-nav-button:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+.trello-nav-button svg {
+  width: 16px;
+  height: 16px;
+  color: inherit;
+}
+
+/* Modal Styles */
+.trello-nav-modal {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 2147483647 !important;
+  backdrop-filter: blur(2px);
+  /* Default to hidden - JavaScript will control visibility */
+  display: none !important;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* When modal is shown */
+.trello-nav-modal.show {
+  display: flex !important;
+  opacity: 1;
+}
+
+.trello-nav-modal-content {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 20px 40px rgba(9, 30, 66, 0.3), 0 0 0 1px rgba(9, 30, 66, 0.1);
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.trello-nav-modal-search {
+  width: 100%;
+  padding: 16px 20px;
+  border: none;
+  border-bottom: 1px solid #dfe1e6;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Noto Sans", "Ubuntu", "Droid Sans", "Helvetica Neue", sans-serif;
+  background-color: #ffffff;
+  color: #172b4d;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.trello-nav-modal-search::placeholder {
+  color: #6b778c;
+}
+
+.trello-nav-modal-dropdown {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+.trello-nav-item {
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Noto Sans", "Ubuntu", "Droid Sans", "Helvetica Neue", sans-serif;
+  color: #172b4d;
+  border-bottom: 1px solid #f4f5f7;
+  transition: background-color 0.1s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trello-nav-item:last-child {
+  border-bottom: none;
+}
+
+.trello-nav-item:hover {
+  background-color: #f4f5f7;
+}
+
+.trello-nav-item.selected {
+  background-color: #e4f0ff;
+  color: #0079bf;
+  font-weight: 500;
+}
+
+.trello-nav-item:active {
+  background-color: #e4e6ea;
+}
+
+.trello-nav-no-results {
+  color: #6b778c;
+  font-style: italic;
+  cursor: default;
+}
+
+.trello-nav-no-results:hover {
+  background-color: transparent;
+}
+
+/* Simple highlight for selected lists - thin frame only */
+.trello-nav-highlighted {
+  border: 1px solid #0079bf !important;
+  border-radius: 3px !important;
+}
+
+
+/* CSS for active list highlighting - thin frame */
+.trello-nav-active-list {
+  border: 1px solid #0079bf !important;
+  border-radius: 3px !important;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .trello-nav-container {
+    margin: 0 4px;
+  }
+  
+  .trello-nav-button {
+    width: 28px;
+    height: 28px;
+    padding: 4px;
+  }
+  
+  .trello-nav-button svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .trello-nav-modal-content {
+    width: 95%;
+    max-width: none;
+  }
+  
+  .trello-nav-modal-search {
+    padding: 12px 16px;
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+  
+  .trello-nav-item {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .trello-nav-button {
+    width: 24px;
+    height: 24px;
+    padding: 3px;
+  }
+  
+  .trello-nav-button svg {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .trello-nav-modal-content {
+    width: 98%;
+    margin: 10px;
+  }
+}
+
+/* Dark mode support (if Trello ever adds it) */
+@media (prefers-color-scheme: dark) {
+  .trello-nav-button {
+    color: #b6c2cf;
+  }
+  
+  .trello-nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .trello-nav-button:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 2px rgba(87, 157, 255, 0.3);
+  }
+}
+  
+  .trello-nav-modal {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+  }
+  
+  .trello-nav-modal-content {
+    background-color: #1d2125;
+    box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 0, 0, 0.2);
+  }
+  
+  .trello-nav-modal-search {
+    background-color: #1d2125;
+    border-bottom-color: #454f59;
+    color: #b6c2cf;
+  }
+  
+  .trello-nav-modal-search::placeholder {
+    color: #8c9bab;
+  }
+  
+  .trello-nav-item {
+    color: #b6c2cf;
+    border-bottom-color: #2c333a;
+  }
+  
+  .trello-nav-item:hover {
+    background-color: #2c333a;
+  }
+  
+  .trello-nav-item.selected {
+    background-color: #1d3a5f;
+    color: #579dff;
+  }
+  
+  .trello-nav-item:active {
+    background-color: #454f59;
+  }
+  
+  .trello-nav-no-results {
+    color: #8c9bab;
+  }
+}
+
+/* Integration with Trello's board header */
+[data-testid="board-header"] .trello-nav-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Ensure the extension doesn't interfere with Trello's layout */
+.trello-nav-container * {
+  box-sizing: border-box;
+}
+
+/* Custom scrollbar for dropdown */
+.trello-nav-dropdown::-webkit-scrollbar {
+  width: 8px;
+}
+
+.trello-nav-dropdown::-webkit-scrollbar-track {
+  background: #f4f5f7;
+  border-radius: 4px;
+}
+
+.trello-nav-dropdown::-webkit-scrollbar-thumb {
+  background: #dfe1e6;
+  border-radius: 4px;
+}
+
+.trello-nav-dropdown::-webkit-scrollbar-thumb:hover {
+  background: #c1c7d0;
+}
+
+/* Firefox scrollbar styling */
+.trello-nav-dropdown {
+  scrollbar-width: thin;
+  scrollbar-color: #dfe1e6 #f4f5f7;
+}

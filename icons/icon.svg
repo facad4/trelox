@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- Background -->
+  <rect width="128" height="128" rx="16" fill="#0079bf"/>
+  
+  <!-- Search icon -->
+  <circle cx="45" cy="45" r="18" fill="none" stroke="white" stroke-width="4"/>
+  <line x1="59" y1="59" x2="75" y2="75" stroke="white" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- List representation -->
+  <rect x="80" y="25" width="30" height="8" rx="2" fill="white"/>
+  <rect x="80" y="40" width="25" height="6" rx="1" fill="white" opacity="0.8"/>
+  <rect x="80" y="52" width="28" height="6" rx="1" fill="white" opacity="0.8"/>
+  <rect x="80" y="64" width="22" height="6" rx="1" fill="white" opacity="0.8"/>
+  
+  <!-- Navigation arrow -->
+  <path d="M85 85 L95 90 L85 95 Z" fill="white"/>
+</svg>
+
